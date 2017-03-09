@@ -1,218 +1,207 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-
 	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>Document</title>
-	<style type="text/css">
-	body, div, img, ul {
-		margin:0;
-		padding:0;
-	}
-	ul, li { list-style: none; }
-	img {border:none;vertical-align:top;} 
-
-	.wrap {
-		width:200px;
-		height:150px;
-		margin:100px;
-		position:relative;
-		/*overflow:hidden;*/
-	}
-	.pic_list {
-		position:absolute;
-		left:-200px;
-		top:0;
-		/*z-index: 1;		*/
-	}
-	.pic_list li {
-		float:left;
-		cursor:pointer;
-	}
-	.pic_list li img {
-		width:200px;
-		height:150px;
-
-	}
-	.circle_list {
-		position:absolute;
-		bottom:5px;
-		left:60px;
-	}
-	.circle_list li {
-		float:left;
-		width:10px;
-		height:10px;
-		margin-left:5px;
-		border:1px solid #424242;
-		border-radius: 50%;
-		 /*z-index: 3;*/
-	}
-	.wrap a{
-		position:absolute;
-		top:60px;
-		display:block;
-		width:30px;
-		height:30px;		
-		background-color: RGBA(0, 0, 0, .3);
-		text-align:center;
-		font-size:18px;
-		color:#fff;
-		line-height:30px;
-		text-decoration:none;
-		 /*z-index: 2;*/
-	}
-	.wrap a:hover {
-		 background-color: RGBA(0, 0, 0, .7);
-	}
-	.prev {
-		left:0;
-	}
-	.next {
-		right:0;
-	}
-	.active {background:skyblue;}
-	</style>
+	<title>Hello Everyone</title>
+	<link href="style.css" rel="stylesheet">
+	
 </head>
 <body>
-	<div class="wrap">
-		<ul class="pic_list">
-			<li><img src="javascript/image/2.png" /></li>
-			<li><img src="javascript/image/1.png" /></li>
-			<li><img src="javascript/image/h1.png" /></li>
-			<li><img src="javascript/image/s2.png" /></li>
-			<li><img src="javascript/image/2.png" /></li>
-			<li><img src="javascript/image/1.png" /></li>
-		</ul>
-		<ul class="circle_list">
-			<li class="active"></li>
-			<li></li>
-			<li></li>
-			<li></li>
-		</ul>
-		<a href="#" class="prev"> &lt; </a>
-		<a href="#" class="next"> &gt; </a>
+	<div class='wrap' >
+		<div id= "header">
+			<div class='myinfo'>
+				<h2>Modes</h2>
+				<h4>you can you up no can no bibi</h4>
+				<p>I know that I am falling in love with me but do not really like me</p>
+
+			</div>
+			<div class="m-nav" id='nav'>
+				<a href="#about" >
+						<span>About</span>
+				</a>
+				<a href="#experience" >
+					<span>Exp</span>
+				</a>
+				<a href='#skills' >
+					<span>Skills</span>
+				</a>
+				<a href="#project" >
+					<span>Project</span>
+				</a>
+				
+				
+				<a href="#concat">
+					<span>Concat</span>
+				</a>
+				<div class="next">
+					<span class='vert'></span>
+					<span class="hor"></span>
+				</div>	
+			</div>
+		</div>
+		<div class="subnav clear">
+			<h2>Modest</h2>
+			<ul>
+				<li><a href="#" title="home" >Home</a></li>
+				 <li><a href="#about"   title="about">About</a></li> 
+				<li><a href="#skills"   title="skills">Skills</a></li>
+				<li><a href="#project"   title="project">Project</a></li>
+				<li><a href="#experience"   title="experience">Experience</a></li>
+				<li><a href="#concat" title="concat">Concat</a></li>
+			</ul>
+		</div>
+
+		<div class="content">
+			<!-- about me -->
+			<div id='about' class='ab-me'>
+				<div class="ab-wrap">
+					<h2>关于我</h2>
+					<div class="clear">
+						<div class="info-btn">
+							<ul>
+								<li class='active'>这是我</li>
+								<li>这也是我</li>
+								<li>这还是我</li>
+							</ul>
+						</div>
+						<div class="info-text" id="ab-info">
+							<div >
+							<img src="image/about1.png">
+							<p>
+								农村户口，专科学历，身高二级残废似萝莉，颜值美不过三秒，和钱包里的钞票一样随时余额不足的智商，拉低大众平均水平的独特欣赏眼观，这就是我，我看到自己都冒火。
+							</p>
+							</div>
+							<div >
+							<img src="image/about2.png">
+							<p>
+
+								不断的自我反省，决定独自学习前端相关技术，是很大的改变，同时我也相信这会是很好的决策。
+							</p>
+							<p>
+								我就是我，你看不见我。
+							</p>
+							</div>
+							<div>
+							<img src="image/about3.png">
+							<p>
+								说出来是不是也没有很厉害，但就一点都不酷了；毕竟没红过，我也不是很懂。
+								
+							</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- skills -->
+			<div id='skills' class="skill">
+				<div class='ski-wrap'>
+					<h2>技能</h2>
+					<div class="clear">
+						<div class="ski-text">
+							<p>
+								展示数据虽不堪，更甚者会以为我不才，奈何我本无能；为显我与众人无差，摸索、跳坑、试错终得此果，期间所历、所获，倍感满足！
+							</p>
+							<p>
+								白话文(说人话)：<br>
+									我已经使出洪荒之力了，并且对于这个结果我很满意。
+							</p>
+						</div>
+						<div class="ski-list">
+							<dl>
+								<dt>HTML/CSS</dt>
+								<dd>
+									<span>95%</span>
+								</dd>
+								<dt>PhotoShop</dt>
+								<dd>
+									<span>80%</span>
+								</dd>
+								<dt>JavaScript</dt>
+								<dd>
+									<span>85%</span>
+								</dd>
+								<dt>JQuery</dt>
+								<dd>
+									<span>87%</span>
+								</dd>
+								<dt>BootStrap</dt>
+								<dd>
+									<span>79%</span>
+								</dd>
+							</dl>
+						</div>
+					</div>
+				 </div>
+			</div>
+			<!-- 过渡图片 -->
+			<div class='tf'></div>
+			<!-- project -->
+			<div id="project" class="pro">
+				<div  class="pro-wrap">
+					<h2>相关项目</h2>
+					<div class='clear'>
+						<ul>
+							<li class="music163">
+							<a href="_layouts/copy music163/music163.html" class="m-163" target ='_blank'>
+								网易云音乐
+								<i class="icon"></i>
+							</a>
+							</li>
+							<li class="o2o">
+							<a href="">
+								蘑菇街
+								<i class="icon"></i>
+							</a>
+							</li>
+							<li class="mojujie">
+								
+							<a href="_layouts/100du/100du.html">
+									100du电商网站
+								<i class="icon"></i>
+							</a>
+							</li>
+						</ul>
+						
+					</div>
+				</div>
+			</div>
+
+			<!-- exp -->
+			<div id="experience">
+				<div class="exp-wrap">
+					<h2>那些年...</h2>
+					<div class="clear">
+						<div class='likes'></div>
+						<div class="works"></div>
+					</div>
+				</div>
+			</div>
+			<!-- concat -->
+			<div id="concat">
+				<div class="cat-wrap">
+					<h2>Get in touch</h2>
+					<div class="info clear">
+						<div class="message">
+							<input type="text" class="text" value="Your Name" onfocus="if(this.value=='Your Name'){this.className='colorback';this.value = ''}" onblur = "if(this.value==''){
+							this.value='Your Name'; this.className='text'}">
+							<input type="text" class="text" value="Your Email" onfocus="if(this.value=='Your Email'){this.className='colorback';this.value = ''}" onblur = "if(this.value==''){
+							this.value='Your Email'; this.className='text'}">
+							<textarea class="you-mess">You Message</textarea>
+						</div>
+						<div class='cat-info'>
+							<ul>
+								<li>这是我的地址</li>
+								<li>这是我的邮箱</li>
+								<li>这是我的电话</li>
+								<li><i></i>听说你想要我的二维码</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer"></div>
 	</div>
-
-
-	<script type="text/javascript">
-		var aUl = document.getElementsByTagName('ul');
-		var aLi1 = aUl[0].getElementsByTagName('li');
-		var aLi2 = aUl[1].getElementsByTagName('li');
-		var prev = document.getElementsByTagName('a')[0];
-		var next = document.getElementsByTagName('a')[1];
-		aUl[0].style.width = aLi1[0].offsetWidth *aLi1.length+'px';
-		
-
-		function autoMove(dis){
-			var newDis = parseInt(getStyle(aUl[0],'left')) +dis;
-			aUl[0].style.left = newDis + 'px';
-			if(newDis<-800){
-				aUl[0].style.left = -200 + 'px';
-			}
-			if(newDis>-200){
-				aUl[0].style.left = -800 + 'px';
-			}			
-		}
-
-		// prev.onclick = function(){autoMove(200)};
-		// next.onclick = function(){autoMove(-200)};
-
-		var timer ;
-		function paly(){
-			//clearInterval(timer);
-			timer = setInterval(function(){
-				autoMove(-200);
-				cont ++;
-			if(cont >4 ){
-				cont=1;
-			}
-			
-			circelShow();
-			},1500);
-		}
-		paly();
-
-		var wrap = document.getElementsByTagName('div')[0];
-		wrap.onmouseover = function(){
-			clearInterval(timer);
-		}
-		wrap.onmouseout = paly;
-
-		var cont =1;
-		function circelShow(){
-		for(var i = 0 ; i < aLi2.length; i++){
-			if (aLi2[i].className == 'active') {
-				aLi2[i].className='';
-			}
-		}
-
-		aLi2[cont-1].className = "active";
-		}
-
-		prev.onclick = function(){
-			
-			cont --;
-			if(cont < 1 ){
-				cont=4;
-			}
-			circelShow();
-			autoMove(200);
-		}	
-		next.onclick = function(){
-			
-			cont ++;
-			if(cont >4 ){
-				cont=1;
-			}
-			
-			circelShow();
-			autoMove(-200);
-		}
-		
-
-		 for(var i =1; i<=aLi2.length; i++){
-		 	aLi2[i-1].index=i;
-			
-		 	aLi2[i-1].onclick=function(){
-		 		// console.log(this.index);
-
-	 		clearInterval(timer);
-		 		var offset = 200*(cont-(this.index));
-			 cont=this.index;
-		 	 autoMove(offset);
-		 	 console.log(offset);
-
-		 	circelShow();
-	 	}
-			
-		 }
-		 
-
-
-// for (var i = 0; i < aLi2.length; i++) {//下面由于产生了一个典型的闭包, 因此要采用立即执行函数的方法
-//                 (function(j){
-//                     aLi2[j].onclick = function () {
-//                         console.log(j);
-
-//                         var clickIndex = parseInt(this.getAttribute('cont'));
-//                         var offset = 200 * (cont - clickIndex);
-//                         autoMove(offset); //存放鼠标点击后的位置，用于小圆点的正常显示 
-//                         cont = clickIndex;
-//                         circelShow();
-//                     }
-//                 })(i)
-//             }
-		
-
-
-
-		function getStyle(obj, attr){
-		return window.getComputedStyle(obj,false)[attr] ? window.getComputedStyle(obj,false)[attr] : obj.getcurrentStyle[attr];
-	}
-	</script>
-
-	
+	<script type="text/javascript" src="index.js"></script>
 </body>
 </html>
