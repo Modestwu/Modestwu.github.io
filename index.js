@@ -20,3 +20,19 @@
  	 		aInfo[this.index].style.color = arrCol[this.index];
  	 	}
  	 }
+
+/*me github*/
+var git = document.getElementById('fork');
+window.onscroll = function(){
+	 if(scrollY > 300){
+ 	// alert(pageYOffset);
+ 	// git.style.display = 'block';
+ 	git.style.opacity = 1;
+ 	git.style.transition ='2s';
+ 	git.style.left = '0';
+ }else{
+ 	git.style.opacity= 0;
+ 	git.style.left ='-150px';
+ }
+}
+

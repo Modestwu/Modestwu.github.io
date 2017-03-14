@@ -212,11 +212,11 @@ body {font-size:12px;font-family:"微软雅黑";}
 .calendar ol .active { width:36px; height:36px; border:2px solid #d30408; position:absolute; top:0; left:0;}
 .calendar ol .img { width:38px; height:38px;  position:absolute; top:0; left:0; }
 
-.today_info { position:absolute; left:218px; top:126px;  width:298px; height:84px; padding:10px; background:#fff; border:1px solid #c0c0c0;}
+.today_info { position:absolute; left:218px; top:126px; display:none; width:298px; height:84px; padding:10px; background:#fff; border:1px solid #c0c0c0;}
 .today_info .img { width:80px; height:80px; float:left; border:2px solid #dddddd;}
 .today_info .text { float:right;  width:210px;}
 .today_info h4 { color:#333; }
-.today_info strong { color:#cccccc; font-size:16px; }
+.today_info strong { color:#cccccc; font-size:16px; margin-right: 5px; }
 .today_info p { color:#999; line-height:18px; }
 .today_info span { position:absolute; left:-6px; top:40px; width:8px; height:14px; background:url(../img/calendar.gif) no-repeat 0 -44px;  }
 
