@@ -62,11 +62,11 @@ body{margin-top:1px;}
 	background-position: 15px -104px;
 }
 
-.nav .shopp  .shop_car{
+.nav .shopp .shop_car{
 	position:absolute;
 	left:-90px;
 	top:31px;
-	/*width:200px;*/
+	width:200px;
 	height:18px;
 	line-height: 18px;
 	text-align: center;
@@ -88,7 +88,7 @@ body{margin-top:1px;}
 	/*padding-right:10px;*/
 }
 .nav .ser .ser_list, .nav .mydian .mydian_list{
-	/*width:100px;*/
+	width:100px;
 	position:absolute;
 	top:31px;
 	left:0;
@@ -103,7 +103,7 @@ body{margin-top:1px;}
 	display:block;
 }
 .ser:hover .ser_list li, .mydian:hover .mydian_list li {
-	/*width:100%;*/
+	width:100%;
 	margin-bottom:2px;
 }
 .ser:hover .ser_list li a,.mydian:hover .mydian_list li a{
