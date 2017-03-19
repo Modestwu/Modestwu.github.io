@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>放大镜效果</title>
+	<link rel="stylesheet" type="text/css" href="../css/reset.css" />
+
+</head>
+<style type="text/css">
+	#wrap {
+		position:relative;
+		width:350px;
+		height:350px;
+		margin:30px auto;
+		
+	}
+	.nor_pic {
+		width:100%;
+		height:100%;
+		position:absolute;
+		left:0;
+		top:0;
+		/*overflow: hidden;*/
+	}
+	.nor_pic .mark{
+		position:absolute;
+		left:0;
+		top:0;
+		width:100px;
+		height:100px;
+		background:#fff;
+		filter:alpha(opacity:30);
+		opacity:0.3;
+		border:1px solid #000;
+		display:none;
+	}
+	.nor_pic .img{
+		width:100%;
+		height:100%;
+	}
+	.big_pic {
+		position:absolute;
+		left:360px;
+		top:0;
+		width:250px;
+		height:250px;
+		overflow:hidden;
+		display:none;
+	}
+	.big_pic img{
+		position:absolute;
+		left:0;
+		top:0;
+	}
+</style>
+<body>
+	<div id="wrap">
+		<div class="nor_pic">
+			<span class="mark"></span>
+			<img src="../img/d1_small.jpg" />
+		</div>
+
+		<div class="big_pic">
+		<img src = "../img/d1_big.jpg"/ >
+		</div>
+	</div>
+	<script type="text/javascript">
+(function(){
+		
+			var box = document.getElementById('wrap');
+			  	nor_pic = getByClass(box,'nor_pic')[0],
+			  	big_pic = getByClass(box,'big_pic')[0],
+			    img = big_pic.getElementsByTagName('img')[0],
+		        mark = nor_pic.getElementsByTagName('span')[0];
+				
+				nor_pic.onmousemove = function(e){
+					var ev = e || event;
+					this.style.cursor = 'move';
+					mark.style.display = 'block';
+					big_pic.style.display ="block";
+
+					// 悬浮小框的top left值
+					var X =  ev.clientX-box.offsetLeft -mark.offsetWidth/2 ,
+						Y =  ev.clientY-box.offsetTop- mark.offsetHeight/2;
+
+					if (X < 0){
+						X = 0;
+					}else if (X > box.offsetWidth - mark.offsetWidth){
+						X  = box.offsetWidth - mark.offsetWidth;
+					}
+					 if( Y < 0){
+					 	Y = 0;
+					 }else if(Y > box.offsetHeight - mark.offsetHeight){
+					 	Y  = box.offsetHeight- mark.offsetHeight;
+					 }
+
+					 // 大图片的显示 用比例来控制
+					 var scaleX = X / (box.offsetWidth-mark.offsetWidth),
+					 	scaleY = Y/ (box.offsetHeight - mark.offsetHeight);
+					 	img.style.left = -scaleX *(img.offsetWidth-big_pic.offsetWidth)+'px';
+					 	img.style.top = -scaleY *(img.offsetHeight-big_pic.offsetHeight)+'px';
+						mark.style.top = Y +'px';
+						mark.style.left =X +'px';
+
+				}
+			nor_pic.onmouseout = function(){
+				mark.style.display = 'none';
+				big_pic.style.display = 'none';
+			}
+
+
+		//获取class名为XX的元素
+	
+		}());
+	function getByClass(obj, clas){
+					var aEle = obj.getElementsByTagName('*'),
+						c_arr = [],
+						reg = new RegExp('^|\\s+' + clas + '\\s+|$');
+					if(obj.getElementsByClassName){
+						return obj.getElementsByClassName(clas);
+					}else {
+
+							for(var i = 0 ; i < aEle.length; i++){
+								if(reg.test(aEle[i].className)){
+									c_arr.push(aEle[i]);
+								}
+							}
+							return c_arr;
+					}
+				}
+	</script>
+</body>
+</html>

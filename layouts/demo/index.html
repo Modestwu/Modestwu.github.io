@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+	<title>Some items</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css"/>
+</head>
+<body>
+ <div class="wrap">
+ 	<ol id="item" class="list">
+ 		<!-- <li>
+ 			<h3>1.关于图片的常用方式</h3>
+ 			<ul>
+ 				<li><a href="">test1</a></li>
+ 				<li><a href="">test2</a></li>
+ 				<li><a href="">test3</a></li>
+ 			</ul>
+ 		</li> -->
+ 	</ol> 
+ 	<p class="more fr">内容持续更新中.....</p>
+ </div>
+ <script type="text/javascript">
+ 	var item = document.getElementById('item'),
+ 		str ='',
+ 		str1 ='',
+ 		list_arr =[
+ 		[	{"title":"1.关于图片的常用方式"},
+ 			{"title":"放大镜效果","url":"demo1/index.html"},
+ 			{"title":"单个图片轮换","url":"demo1/onlytab.html"},
+ 			{"title":"仿苹果导航菜单","url":"demo1/iphoneNav.html"}
+ 		],
+ 		[
+ 			{'title':"2.内容区域的常用方式"},
+ 			{"title":"隔行变色","url":"demo4/index.html"},
+ 		],
+ 		] 
+ 		for(var i = 0; i < list_arr.length; i++){
+ 			var title_h = list_arr[i];
+ 			for(var j = 0; j < title_h.length; j++){
+ 				if(j ==0){
+ 					str1 = "<li><h3>"+title_h[j].title+"</h3><ul>";
+ 				}else{
+ 					str1 += "<li><a target='_blank' href="+title_h[j].url+">"+title_h[j].title+"</a></li>";
+ 				}
+ 				if(j == title_h.length-1){
+ 					str1 += '</ul></li>';
+ 				}
+ 			}
+ 			str += str1;
+ 		}
+ 		item.innerHTML = str;
+ 		var h3 = item.getElementsByTagName('h3'),
+ 			s_ul = item.getElementsByTagName('ul'),
+ 			iNow = 0,
+ 			onOff = false;
+ 		for(var i = 0; i < h3.length; i++){
+ 			h3[i].index = i;
+ 			h3[i].onclick = function(){
+ 				for(var k = 0; k < h3.length; k++){
+ 					s_ul[k].style.display ='none';
+ 				}
+ 				//判断点击的h3时 ul是否显示，
+ 				if(iNow ==this.index && onOff){
+ 					s_ul[this.index].style.display ='none';
+ 					onOff = false;
+ 				}else{
+ 					s_ul[this.index].style.display ="block";
+ 					onOff = true;
+ 				}
+ 				iNow = this.index;
+ 			}
+ 		}
+ </script>
+</body>
+</html>

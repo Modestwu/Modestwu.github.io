@@ -1,0 +1,15 @@
+/*重置样式*/
+body,h1,h2,h3,h4,p,dl,dd,ul,ol,form,input,textarea,th,td,select{margin:0;padding:0;}
+em {font-style:normal;} /*去掉em的斜体*/
+li {list-style:none;}
+a {text-decoration:none;color:#333;}
+img {border:none;vertical-align:top;} /*去掉外框 然后对齐*/
+table {border-collapse:collapse;}
+input,textarea {outline:none;} /*chrome下外边框高亮去掉*/
+body {font-size:12px;font-family:"微软雅黑" arial; color:#333;}
+
+/* 公共样式 public*/
+.fl {float:left;}
+.fr {float:right;}
+.clear {zoom:1;}
+.clear:after {content:'';display:block;clear:both;}

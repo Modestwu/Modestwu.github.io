@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>图片自动切换(定时器的使用)</title>
+	<style>
+	ul,p{margin:0;padding:0;}
+	a{text-decoration:none;}
+	li{list-style: none}
+	
+
+	#content{width:300px;height:400px;border:5px solid #ccc;position:relative;margin:40px auto 0;}
+	#content a{position:absolute;top:100px;width:20px;height:200px;background:#ccc;filter:alpha(opacity:50);opacity:.5;font-size: 30px;font-weight:bold;line-height: 200px;color:#fff;
+		text-align:center;}
+	#content a:hover{filter:alpha(opacity:80);opacity:.8;}	
+	#prev{left:0;}
+	#next{right:0;}
+
+	#content .span1,#content .text{position:absolute;left:0;height:30px;line-height: 30px;font-size: 18px;background:#fff;filter:alpha(opacity:50);opacity:.5;text-align:center;width:300px;}
+	.span1{top:0;}
+	.text{bottom:0;}
+
+	#content ul{position:absolute;bottom:-30px;left:100px;}
+	#content ul li{width:15px;height:15px;border-radius:50px;margin-left: 5px;border:1px solid #f66;float:left;position:relative;}
+	#content ul .active{background:#0df5d5;}
+	#content ul li img{width:50px;height:50px;border:1px solid #000;position:absolute;bottom:-60px;left:-15px;display:none; }
+
+	#content ul .hover{display:block;}
+	#content .img1{width:300px;height:400px;}
+	</style>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			var oCont=document.getElementById('content');
+			var oPrev=document.getElementById('prev');
+			var oNext=document.getElementById('next');
+
+			var oSpan=oCont.getElementsByTagName('span')[0];
+			var oText=oCont.getElementsByTagName('p')[0];
+			var oImg=oCont.getElementsByTagName('img')[0];
+
+			var oUl=oCont.getElementsByTagName('ul')[0];
+			var aLi=oUl.getElementsByTagName("li");
+			var aDiv=oUl.getElementsByTagName('img');
+
+			var arrUrl=['../img/1.png','../img/2.png','../img/3.png']
+			var arrText=[' 图片一','图片二','图片三'];
+			var num=0;
+
+			for(var i =0;i<arrUrl.length;i++){
+				oUl.innerHTML+='<li></li>';
+			}
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].innerHTML='<img/>';
+			}
+
+
+			//初始化
+			function fnTab(){
+			oText.innerHTML=arrText[num];
+			oSpan.innerHTML=num+1+'/'+arrUrl.length;
+			oImg.src=arrUrl[num];
+			for(var i =0 ; i<aLi.length;i++){
+				aLi[i].className='';
+			}
+			aLi[num].className="active";
+			aDiv[num].src=arrUrl[num];
+		}
+
+			fnTab();
+			
+			//点击上一张
+			oPrev.onclick=function(){
+				num--;
+				if(num==-1){
+					num=arrUrl.length-1;
+				}
+				fnTab();
+			}
+
+			//点击下一张
+			oNext.onclick=function(){
+				num++;
+				if(num==arrUrl.length){
+					num=0;
+				}
+				fnTab();
+			}
+
+			for(var i=0;i<aLi.length;i++){
+				aLi[i].index=i;
+				aLi[i].onmouseover=function(){
+					aDiv[this.index].className='hover';
+					aDiv[this.index].src=arrUrl[this.index];
+				}
+				aLi[i].onmouseout=function(){
+					aDiv[this.index].className='';
+				}
+
+				//点击小圆点（li）的时，切换相应图片
+				aLi[i].onclick=onAli;
+					function onAli (){
+					fnTab();
+				}
+			}
+
+			//用定时器实现自动切换
+			var timer=null;
+			function autoPlay(){
+			timer=setInterval(function(){
+				num++;
+				num %= arrUrl.length;
+				fnTab();
+			},2000);
+			
+		}
+		autoPlay();
+		oCont.onmouseover=function(){
+			clearInterval(timer);
+		}
+		oCont.onmouseout=function(){
+			autoPlay();
+		}
+
+		}
+
+
+	</script>
+</head>
+<body>
+	<div id="content">
+		<a  id='prev' href="javascript:;"><</a>
+		<a  id='next' href ="javascript:;">></a>
+		<span class="span1">图片数量加载中....</span>
+		<p class="text">图片信息加载中......</p>
+		<img class='img1' />
+		<ul>
+			
+		</ul>
+
+	</div>
+</body>
+</html>

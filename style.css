@@ -426,6 +426,7 @@ margin:0 auto;
 	float:left;
 	margin:10px 20px;
 	position:relative;
+	text-align: center；
 }
 .pro-wrap ul li:nth-child(1){
 	background:url('image/music163.jpg') no-repeat;
@@ -439,6 +440,11 @@ margin:0 auto;
 	background:url('image/100du.gif') no-repeat;
 	background-size:cover;
 }
+.pro-wrap ul li:nth-child(4){
+	background:url('image/more.png') no-repeat;
+	background-size:cover;
+}
+
 .pro-wrap li a{
 	display:block;
 	position:absolute;

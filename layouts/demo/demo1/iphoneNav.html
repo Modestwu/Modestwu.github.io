@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	body.div.img{
+		margin:0;
+		padding:0;
+	}
+		.wrap {
+			position:absolute;
+			left:0;
+			bottom:0;
+			width:100%;
+			text-align:center;
+		}
+
+		.wrap img {
+			width:50px;
+			/*height:74px;*/
+			border:1px solid ;
+			border-radius:15px;
+			/*position:absolute;*/
+
+		}
+	</style>
+</head>
+<body>
+<input type="text">
+<input type="text" />
+<input type="text" />
+<input type="text" />
+<input type="text" />
+	<div id="box" class='wrap'>
+		<img src="../img/ipe1.png" />
+		<img src="../img/ipe2.png" />
+		<img src="../img/ipe3.png" />
+		<img src="../img/ipe4.png" />
+		<img src="../img/ipe5.png" />
+		
+	</div>
+
+	<script type="text/javascript">
+
+	/*
+		苹果导航菜单
+			1. 原理
+				-距离决定大小：根据鼠标和图片中心点的距离，来控制图片的大小，
+				-两点间的距离(勾股定律 斜边 = 两边的平方和)
+			2.距离换成比例
+			 	-根据比例的大小和图片宽度的乘积，得到不同大小的图片，实现图片自动缩放的效果
+		ps: 4个input是用来测试观看图片与鼠标距离用的
+
+	*/
+		var text = document.getElementsByTagName('input'),
+			box = document.getElementById('box'),
+			img = box.getElementsByTagName('img');
+
+			document.onmousemove = function(e){
+				var ev = e || event;
+					
+
+				for( var i = 0; i < img.length; i++){
+					//求图片中心点的位置
+					var x = img[i].offsetLeft+img[i].offsetWidth/2,
+						y = img[i].offsetTop + img[i].offsetHeight/2 +box.offsetTop,
+						// 两边长度，即两直角边长度
+						a = x - ev.clientX,
+						b = y - ev.clientY,
+
+						// 鼠标和图片的距离
+						dis = Math.sqrt(Math.pow(a,2)+Math.pow(b,2));
+					// 距离换成比例，控制图片大小
+					var scale =  1- dis / 300;
+
+	//如果比例小于了原本一半，就停止继续减小，即该图片回归开始时大小
+					if(scale < 0.5){
+						scale = 0.5;
+					}
+
+					img[i].style.width = scale * 100 +'px';
+					
+					 text[i].value = scale.toFixed(2);
+
+				}
+			}
+	</script>
+</body>
+</html>
